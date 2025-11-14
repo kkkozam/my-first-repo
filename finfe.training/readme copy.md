@@ -1,0 +1,3 @@
+- react-spa react单应用
+- react-portal 微前端主工程 + Monorepo套件
+- react-subapp 微前端子工程

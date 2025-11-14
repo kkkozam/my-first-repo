@@ -1,0 +1,4 @@
+// tailwind基础样式引入
+// @tailwind base; // 不要引入 reset,会和mtd react冲突
+@tailwind components;
+@tailwind utilities;

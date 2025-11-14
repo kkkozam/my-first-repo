@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,viewport-fit=cover"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <title><%= htmlWebpackPlugin.options.APP_NAME %></title>
+
+    <style>
+      .-watermarked::after {
+        content: ' ';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        background-image: url('/api-wm/image/visible');
+        background-size: 350px, auto;
+        pointer-events: none;
+      }
+    </style>
+    <style>
+      @media (max-width: 768px) {
+        html,
+        body {
+          height: 100%;
+          overflow: auto;
+          overscroll-behavior-y: none;
+        }
+        .skeleton-nav {
+          display: none;
+        }
+        .wrapper-side {
+          display: none;
+        }
+        .skeleton-container {
+          top: 0;
+          left: 0;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="main" style="height: 100%">
+      <div class="skeleton">
+        <div class="skeleton-nav">
+          <div class="nav-logo"></div>
+          <div class="nav-items">
+            <div class="nav-item"></div>
+            <div class="nav-item"></div>
+            <div class="nav-item"></div>
+          </div>
+        </div>
+        <div class="skeleton-wrapper">
+          <div class="wrapper-side">
+            <div class="side-item"></div>
+            <div class="side-item"></div>
+            <div class="side-item"></div>
+            <div class="side-item"></div>
+          </div>
+          <div class="wrapper-content">
+            <div class="skeleton-page">
+              <div class="skeleton-header"><div class="header-title"></div></div>
+              <div class="skeleton-content">
+                <div class="content-form">
+                  <div class="form-item"><div class="item-content"></div></div>
+                  <div class="form-item"><div class="item-content"></div></div>
+                  <div class="form-item"><div class="item-content"></div></div>
+                  <div class="form-item"><div class="item-content"></div></div>
+                  <div class="form-operation"><div class="item-content"></div></div>
+                </div>
+                <div class="content-table">
+                  <div class="table-head"></div>
+                  <div class="table-body">
+                    <div class="table-row"><div class="row-content"></div></div>
+                    <div class="table-row"><div class="row-content"></div></div>
+                    <div class="table-row"><div class="row-content"></div></div>
+                    <div class="table-row"><div class="row-content"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <style>
+        .skeleton {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+        }
+        .skeleton .skeleton-nav {
+          box-sizing: border-box;
+          padding: 0 18px;
+          height: 48px;
+          box-shadow: 0 2px 8px 0 rgba(93, 98, 106, 0.1);
+          background-color: #f7f7f7;
+        }
+        .skeleton .skeleton-nav .nav-logo {
+          display: inline-block;
+          margin-top: 10px;
+          width: 194px;
+          height: 28px;
+          background-color: #e8e8e8;
+        }
+        .skeleton .skeleton-nav .nav-items {
+          box-sizing: border-box;
+          display: inline-block;
+          margin-top: 20px;
+          padding-left: 48px;
+          height: 18px;
+        }
+        .skeleton .skeleton-nav .nav-items .nav-item {
+          display: inline-block;
+          margin: 0 12px;
+          width: 84px;
+          height: 100%;
+          border-radius: 4px;
+          background-color: #e8e8e8;
+          box-shadow: 0 2px 8px 0 rgba(93, 98, 106, 0.1);
+        }
+        .skeleton .skeleton-wrapper {
+          display: flex;
+          flex: 1;
+          flex-direction: row;
+          height: calc(100% - 48px);
+        }
+        .skeleton .skeleton-wrapper .wrapper-side {
+          box-sizing: border-box;
+          width: 200px;
+          border-right: 1px solid rgba(0, 0, 0, 0.07);
+        }
+        .skeleton .skeleton-wrapper .wrapper-side .side-item {
+          margin-top: 22px;
+          margin-left: 24px;
+          width: 128px;
+          height: 18px;
+          border-radius: 4px;
+          background-color: #e8e8e8;
+        }
+        .skeleton .skeleton-wrapper .wrapper-content {
+          flex: 1;
+        }
+        .skeleton-page .skeleton-header {
+          box-sizing: border-box;
+          height: 64px;
+          padding: 16px 24px 16px 24px;
+        }
+        .skeleton-page .skeleton-header .header-title {
+          width: 10%;
+          height: 100%;
+          background-color: #f7f7f7;
+        }
+        .skeleton-page .skeleton-content {
+          box-sizing: border-box;
+          height: calc(100% - 64px);
+          padding: 0 24px 16px;
+        }
+        .skeleton-page .skeleton-content .content-form {
+          box-sizing: border-box;
+          height: 108px;
+          padding-top: 12px;
+          background-color: #f7f7f7;
+          border-radius: 4px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+        .skeleton-page .skeleton-content .content-form .form-item {
+          width: calc(33.33% - 10px);
+          height: 32px;
+          margin-bottom: 16px;
+        }
+        .skeleton-page .skeleton-content .content-form .form-item .item-content {
+          margin: 6px 15%;
+          height: 20px;
+          background-color: #e8e8e8;
+        }
+        .skeleton-page .skeleton-content .content-table {
+          margin-top: 12px;
+        }
+        .skeleton-page .skeleton-content .content-table .table-head {
+          height: 37px;
+          background-color: #f7f7f7;
+        }
+        .skeleton-page .skeleton-content .content-table .table-body .table-row {
+          box-sizing: border-box;
+          height: 45px;
+          padding: 11px 8px;
+        }
+        .skeleton-page .skeleton-content .content-table .table-body .table-row .row-content {
+          height: 100%;
+          background-image: linear-gradient(90deg, #f7f7f7 0%, #e8e8e8 50%, #f7f7f7 100%);
+          background-size: 200% 100%;
+          animation: skeleton-loading 1.5s ease-in-out infinite;
+        }
+
+        @keyframes skeleton-loading {
+          0% {
+            background-position: 0 0;
+          }
+          50% {
+            background-position: 100% 0;
+          }
+          100% {
+            background-position: 0 0;
+          }
+        }
+      </style>
+    </div>
+  </body>
+</html>
